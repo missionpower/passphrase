@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passphrase - missionpower.github.io</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Generate a Passphrase</h1>
+
+        <p>
+            Randomly generated passphrases are hard to guess, but easy to remember.
+            Instead of reusing passwords, use a password manager that you unlock
+            with a long passphrase.
+        </p>
+
+        <hr>
+    </header>
+
+    <main>
+        <div id="passphrase" onclick="copy()"></div>
+
+        <div id="output"></div>
+
+        <button onclick="regenerate()" id="regenerate">Regenerate</button>
+
+        <div class="input">
+            <label for="n_words">Words:</label>
+            <input type="text" id="n_words" size="2">
+            <button onclick="plus()">+1</button>
+            <button onclick="minus()">-1</button>
+        </div>
+
+        <div class="input">
+            <label for="separator">Separator:</label>
+            <select id="separator" oninput="regenerate()">
+                <option value="-" selected>Dash</option>
+                <option value="_">Underscore</option>
+                <option value=" ">Space</option>
+            </select>
+        </div>
+
+        <div class="input">
+            <label for="capitalize">Capitalize:</label>
+            <input type="checkbox" id="capitalize" oninput="regenerate()">
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+
+        <p>
+            This page uses your browser's built-in <code>crypto</code> API to
+            generate secure passphrases.
+        </p>
+
+        <p>
+            Passphrases are generated with
+            <a href="https://github.com/first20hours/google-10000-english">this list</a>
+            of 10,000 common English words.
+        </p>
+        
+        <p>
+            This site is open source.
+            <a href="https://github.com/missionpower/passphrase">View and edit on GitHub</a>
+        </p>
+    </footer>
+
+    <script src="words.js"></script>
+    <script src="passphrase.js"></script>
+</body>
+</html>
